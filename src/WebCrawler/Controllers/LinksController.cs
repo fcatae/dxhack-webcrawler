@@ -7,20 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebCrawler.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class LinksController : Controller
     {
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<string> l = new List<string>();
+            l.Add("abc");
+
+            return l;
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{keyw}")]
+        public string Get(string keyw)
         {
-            return "value";
+            return keyw.ToString();
         }
 
         // POST api/values
