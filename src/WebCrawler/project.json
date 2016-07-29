@@ -22,7 +22,7 @@
   },
   
   "commands": {
-  "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://localhost:60000;http://*:60001;"
+  "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://localhost:5000;"
 },
 
   "frameworks": {
