@@ -14,6 +14,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
+    <ApplicationInsightsResourceId>/subscriptions/db0dbc80-730e-445c-bccc-1d7152b75090/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/WebCrawler</ApplicationInsightsResourceId>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
