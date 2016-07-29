@@ -37,9 +37,25 @@ namespace WebCrawler.Controllers
 
         // GET api/values/5
         [HttpGet("{keyw}")]
-        public string Get(string keyw)
+        public IEnumerable<string> Get(string keyw)
         {
-            return keyw.ToString();
+            List<string> linkList = new List<string>();
+
+            using (SqlConnection conn = new SqlConnection(@"Server=tcp:superbotdb.database.windows.net,1433;Initial Catalog=superbotdb;Persist Security Info=False;User ID=superbotdb;Password=P2ssw0rd@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            {
+                SqlCommand cmd = new SqlCommand("select * from tbLinks", conn);
+
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string link = reader.GetString(0);
+                    linkList.Add(link);
+                }
+
+            }
+
+            return linkList;
         }
 
         // POST api/values
