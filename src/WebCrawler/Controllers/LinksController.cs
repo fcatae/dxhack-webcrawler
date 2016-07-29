@@ -17,7 +17,7 @@ namespace WebCrawler.Controllers
         {
             List<string> linkList = new List<string>();
 
-            using (SqlConnection conn = new SqlConnection(""))
+            using (SqlConnection conn = new SqlConnection("Server=tcp:superbotdb.database.windows.net,1433;Initial Catalog=superbotdb;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 SqlCommand cmd = new SqlCommand("select 'http://bing.com' union select 'http://localhost'", conn);
 
