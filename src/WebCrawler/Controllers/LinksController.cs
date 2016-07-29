@@ -14,7 +14,7 @@ namespace WebCrawler.Controllers
         public IEnumerable<string> Get()
         {
             List<string> l = new List<string>();
-            l.Add("abc");
+            l.Add("http://bing.com");
 
             return l;
         }
