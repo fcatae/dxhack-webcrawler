@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WebCrawler.Controllers
 {
@@ -13,10 +15,23 @@ namespace WebCrawler.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            List<string> l = new List<string>();
-            l.Add("http://bing.com");
+            List<string> linkList = new List<string>();
 
-            return l;
+            using (SqlConnection conn = new SqlConnection(""))
+            {
+                SqlCommand cmd = new SqlCommand("select 'http://bing.com' union select 'http://localhost'", conn);
+
+                var reader = cmd.ExecuteReader();
+
+                while( reader.Read() )
+                {
+                    string link = reader.GetString(0);
+                    linkList.Add(link);
+                }
+
+            }
+
+            return linkList;
         }
 
         // GET api/values/5
