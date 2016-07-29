@@ -20,6 +20,10 @@
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
   },
+  
+  "commands": {
+  "web": "Microsoft.AspNet.Server.Kestrel --server.urls=http://localhost:60000;http://*:60001;"
+},
 
   "frameworks": {
     "netcoreapp1.0": {
