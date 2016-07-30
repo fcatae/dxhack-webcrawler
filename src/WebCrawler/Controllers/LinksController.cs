@@ -19,7 +19,7 @@ namespace WebCrawler.Controllers
 
             using (SqlConnection conn = new SqlConnection(@"Server=tcp:superbotdb.database.windows.net,1433;Initial Catalog=superbotdb;Persist Security Info=False;User ID=superbotdb;Password=P2ssw0rd@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
-                SqlCommand cmd = new SqlCommand("select 'http://bing.com' union select 'http://localhost'", conn);
+                SqlCommand cmd = new SqlCommand("select link from tbLinks", conn);
                 conn.Open();
 
                 var reader = cmd.ExecuteReader();
@@ -68,7 +68,6 @@ namespace WebCrawler.Controllers
         [HttpPost]
         public void Post([FromBody]string value)
         {
-            var c = HttpContext;
         }
      
         // DELETE api/values/5
