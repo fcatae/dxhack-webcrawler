@@ -41,11 +41,11 @@ namespace WebCrawler.Controllers
         {
             List<string> linkList = new List<string>();
 
-            string keyword_list = keyw.Replace("|"," ");
+            string keyword_list = keyw.Replace("|"," AND ");
 
             using (SqlConnection conn = new SqlConnection(@"Server=tcp:superbotdb.database.windows.net,1433;Initial Catalog=superbotdb;Persist Security Info=False;User ID=superbotdb;Password=P2ssw0rd@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
-                SqlCommand cmd = new SqlCommand("SELECT link FROM TBLINKS WHERE FREETEXT(body, @1)", conn);
+                SqlCommand cmd = new SqlCommand("EXEC prSearch @1", conn);
                 var p1 = cmd.Parameters.Add("@1", SqlDbType.VarChar, 1000);
                 p1.Value = keyword_list;
 
