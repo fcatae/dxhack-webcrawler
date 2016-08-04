@@ -17,7 +17,7 @@ namespace WebCrawler.Controllers
         {
             List<string> linkList = new List<string>();
 
-            using (SqlConnection conn = new SqlConnection(@"Server=tcp:superbotdb.database.windows.net,1433;Initial Catalog=superbotdb;Persist Security Info=False;User ID=superbotdb;Password=P2ssw0rd@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (SqlConnection conn = new SqlConnection(@"Server=tcp:<>.database.windows.net,1433;Initial Catalog=superbotdb;Persist Security Info=False;User ID=<>;Password=<>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 SqlCommand cmd = new SqlCommand("select link from tbLinks", conn);
                 conn.Open();
